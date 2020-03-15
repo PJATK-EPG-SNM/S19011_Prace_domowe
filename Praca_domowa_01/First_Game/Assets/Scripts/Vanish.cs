@@ -5,62 +5,25 @@ using UnityEngine;
 public class Vanish : MonoBehaviour
 {
 
-	public float timer = 2f;
 	public GameObject Player;
-	
-//	private float x;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-	
+	public float timer = 2f;
+   
+	private void OnTriggerEnter2D(Collider2D other)
+		{
+			if (other.gameObject == Player)
+			{
+			Destroy(this.gameObject, timer);
+//				
+			
+			}
+		}
 		
-//        if (timer > 0)
-//			{
-//				timer -= Time.deltaTime;
-//				if (timer <= 0)
-//				{
-//				 Destruction();
-//				}
-//			}
-    }
-	
-	void OnCollisionEnter(Collision coll){
-		if (coll.gameObject.tag == "Player"){
-//			if (timer > 0)
-//			{
-//				timer -= Time.deltaTime;
-//				if (timer <= 0)
-//				{
-				 Destruction();
-//				}
-//			}
+	private void OnTriggerExit2D(Collider2D other)
+		{
+			if (other.gameObject == Player)
+			{
+				
+			}
 			
 		}
-	}
-	
-//	private void OnTriggerEnter(Collider other)
-//	{
-//		if (other.gameObject == Player)
-//		{
-////			if (timer > 0)
-////			{
-////				timer -= Time.deltaTime;
-////				if (timer <= 0)
-////				{
-//				 Destruction();
-////				}
-////			}
-//		}
-//	}
-	
-	void Destruction()
-	{
-		Destroy(this.gameObject);
-	}
 }
